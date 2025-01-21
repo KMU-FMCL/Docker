@@ -1,0 +1,27 @@
+services:
+  systemd-cuda:
+    image: kmu-fmcl/systemd-cupy:v13.3.0-12.4.1-cudnn-devel-ubuntu22.04
+    stdin_open: true
+    tty: true
+    container_name: systemd-cupy
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities:
+                - gpu
+    tmpfs:
+      - /tmp
+      - /run
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    networks:
+      ipvlan:
+         ipv4_address: 192.168.0.201
+
+networks:
+  ipvlan:
+    external: true
