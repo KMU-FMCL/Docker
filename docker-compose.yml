@@ -1,6 +1,6 @@
 services:
   systemd-cuda:
-    image: kmu-fmcl/systemd-cuda:12.4.1-cudnn-devel-ubuntu22.04
+    image: taehun3446/systemd-cuda:12.4.1-cudnn-devel-ubuntu22.04
     stdin_open: true
     tty: true
     container_name: systemd-cuda

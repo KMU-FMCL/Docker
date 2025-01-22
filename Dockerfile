@@ -3,12 +3,12 @@ FROM taehun3446/cuda:12.4.1-cudnn-devel-ubuntu22.04
 ARG SSH_ROOT_PASSWORD=${SSH_ROOT_PASSWORD:-root}
 ARG SSH_ROOT_PASSWORD=${SSH_ROOT_PASSWORD}
 
-WORKDIR /root
+WORKDIR /app
 
-COPY packages.txt /root/
+COPY ./app/ /app/
 
 RUN nala update && xargs -a packages.txt nala install -y --no-install-recommends \
-  && apt-get autoclean \
+  && apt autoclean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   && echo "root:$SSH_ROOT_PASSWORD" | chpasswd \
   && sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
