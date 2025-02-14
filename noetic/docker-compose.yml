@@ -1,0 +1,10 @@
+services:
+  noetic:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: taehun3446/ros:noetic-test
+    container_name: noetic
+    stdin_open: true
+    tty: true
+    command: /bin/bash

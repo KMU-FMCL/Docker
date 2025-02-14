@@ -1,0 +1,34 @@
+services:
+  devel:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+      args:
+        CUDA_ARCH: ${CUDA_ARCH}
+        CUDA_PTX: ${CUDA_PTX}
+    image: taehun3446/builder:12.4.1-cudnn-devel-ubuntu22.04
+    stdin_open: true
+    container_name: devel
+    ports:
+      - "1241:22"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities:
+                - gpu
+#    tmpfs:
+#     - /tmp
+#     - /run
+#     - /run/lock
+#    volumes:
+#     - /sys/fs/cgroup:/sys/fs/cgroup:rw
+#    networks:
+#      ipvlan:
+#        ipv4_address: 192.168.0.201
+
+# networks:
+#   ipvlan:
+#     external: true
