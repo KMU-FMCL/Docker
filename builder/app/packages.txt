@@ -7,6 +7,9 @@ poppler-utils
 imagemagick
 git
 git-lfs
+autoconf
+patch
+uuid-dev
 build-essential
 gettext
 libxcb1-dev 
@@ -17,8 +20,15 @@ bison
 zlib1g-dev
 libyaml-dev
 libssl-dev
+libyaml-dev
 libgdbm-dev
 libffi-dev
+libreadline6-dev
+libgmp-dev
+libncurses5-dev
+libgdbm6
+libgdbm-dev
+libdb-dev
 cmake
 ninja-build
 gcc-12
